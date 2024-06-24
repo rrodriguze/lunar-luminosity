@@ -1,12 +1,19 @@
 ---
+import Link from "./ui/Link.astro";
 
+const { pathname } = Astro.url;
+console.log(pathname);
 ---
 
-<header class="w-full h-14 bg-blue-200">
-  <a href="/">OVRTAKE</a>
-  <div class="float-right">
-    <a href="/live-session">LIVE SESSION</a>
-    <a href="/latest">LATEST</a>
-    <a href="/rumours">RUMOURS</a>
-  </div>
+<header
+  class="w-full flex rounded-md border border-[#2D2D2D] p-4 mb-4 items-center"
+>
+  <a class="text-md text-neutral-50" href="/">Ovrtake</a>
+  <nav class="flex flex-1 justify-end items-center gap-4">
+    <Link isActive={pathname === "/live-session"} href="/live-session"
+      >Live session</Link
+    >
+    <Link isActive={pathname === "/latest"} href="/latest">Latests</Link>
+    <Link isActive={pathname === "/rumours"} href="/rumours">Rumours</Link>
+  </nav>
 </header>

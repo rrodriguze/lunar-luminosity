@@ -1,0 +1,19 @@
+---
+interface Props {
+  isActive: boolean;
+  href: string;
+}
+
+const { isActive, href } = Astro.props;
+---
+
+<a
+  class:list={[
+    "text-sm transition-colors  hover:text-neutral-300",
+    { "text-neutral-50": isActive },
+    { " text-neutral-400": !isActive },
+  ]}
+  href={href}
+>
+  <slot />
+</a>
